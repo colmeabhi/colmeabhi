@@ -33,7 +33,7 @@ what i've worked on in the past:
 
 ---
 
-[linkedin](https://www.linkedin.com/in/abhishekahirrao/) | [github](https://github.com/colmeabhi) | [devpost](https://devpost.com/colmeabhi?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav) | [portfolio](https://colmeabhi.github.io/#)
+[linkedin](https://www.linkedin.com/in/abhishekahirrao/) | [github](https://github.com/colmeabhi) | [portfolio](https://colmeabhi.github.io/#)
 
 ---
 
