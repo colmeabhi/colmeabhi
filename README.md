@@ -1,54 +1,53 @@
-<p align="center"><em>hey there!</em> i'm</p>
-<h1 align="center">
-  abhi 🚀
-</h1>
+# hey, i'm abhi
 
-i'm a platform engineer and a grad student at san jose state university (ms computer science, 2027). before this i spent 3.5 years at quantiphi building self-service infrastructure, aws data platforms and on-call tooling ⚡. i like infrastructure that just works: platform engineering, devops/sre, kubernetes, infrastructure as code, llm serving and parallel programming.
+i'm a platform engineer. i build the infrastructure that sits under data and ai workloads: 3.5 years at quantiphi, and now an ms in computer science at san jose state (2027), where i work on llm serving, distributed systems and gpu programming.
 
-what i'm currently up to:
-- 🔍 open to **full-time platform, infrastructure and backend roles**
-- 🧠 m.s. project: [cache-aware scale-in](https://github.com/colmeabhi/cache-aware-scale-in), a kubernetes controller that keeps warm llm caches alive when vllm scales down
-- 🏆 won the aws x datadog genai hackathon and took 1st of ~50 teams at the composio x redis "agents with superpowers" hackathon (2025)
-- 📚 coursework in algorithms (cs-255), computer communication (cs-258), cloud computing (cs-218), parallel programming (cs-259) and machine learning (cs-271)
+**open to full-time platform, infrastructure and backend roles.**
 
-what i was up to at [quantiphi](https://quantiphi.com/) (sde-platform i and ii, 2022 to 2025):
-- ☁️ built a self-service infrastructure platform used by 50 data engineers: a python cli and a claude-on-bedrock interface that turned plain-english requests into pre-approved terraform and cloudformation stacks
-- 🔁 architected the move of an informatica-on-ec2 etl platform to lambda, ecs fargate and step functions, ingesting from 8+ sources into redshift
-- 🚨 on-call for 6 production services; one grafana dashboard and symptom-based alerts cut mttr from 3 hours to 10 minutes
-- 🔐 policy-as-code guardrails on 120 stacks across 3 accounts, disaster-recovery drills every 4 months
+[portfolio](https://colmeabhi.github.io/) · [resume](https://colmeabhi.github.io/assets/Abhishek_Ahirrao_Resume.pdf) · [linkedin](https://www.linkedin.com/in/abhishekahirrao/) · [email](mailto:abhishekahirrao09@gmail.com)
 
-what i've built:
-- [cache-aware scale-in](https://github.com/colmeabhi/cache-aware-scale-in): scores each vllm replica's kv cache and sets pod-deletion-cost, so kubernetes removes the coldest replica first ([case study](https://colmeabhi.github.io/case-studies/cache-aware-scale-in.html))
-- [phantom: iac drift reconciliation saas](https://github.com/Kunal23002/iac-drift-saas): finds aws console changes that drifted from iac, has bedrock write the fix and opens a github pr. hackathon winner, then a 3-person rebuild that i led ([prototype](https://github.com/krishmula/phantom))
-- [duplicate-safe order ledger](https://github.com/colmeabhi/idempotent-order-cloud-api): idempotent order api on fastapi and postgres, deployed on ecs fargate with terraform ([case study](https://colmeabhi.github.io/case-studies/idempotent-order-api.html))
-- [parallel n-body simulation](https://github.com/colmeabhi/parallelized-nbody-simulation-cuda-cpp): galaxy simulation in c++ with openmp, barnes-hut and cuda kernels
-- [sdn load balancer](https://github.com/colmeabhi/sdn-load-balance): ryu/openflow controller with five swappable algorithms, benchmarked with locust
-- [california fishing compliance](https://github.com/colmeabhi/regulated-fish-classification-california-datasetcreator-modeltraining): dataset builder and model for classifying regulated fish species, 91% accuracy
-- ai sprint planning assistant: spreadsheet-to-jira workflows with a rag pipeline and multi-tool orchestration (1st place, composio x redis hackathon)
+## what i'm working on now
 
-| [![GitHub Streak](https://nirzak-streak-stats.vercel.app?user=colmeabhi&card_width=400&background=45%2C4A90E2%2CFFFFFF&hide_current_streak=true&hide_longest_streak=true)](https://git.io/streak-stats) | [![My Skills](https://skillicons.dev/icons?i=aws,kubernetes,docker,terraform,python,cpp,bash,git,github,cloudformation,prometheus,grafana,jenkins,linux&perline=7&theme=light)](https://github.com/colmeabhi "skills") |
-|---|---|
+**[cache-aware scale-in for vllm on kubernetes](https://github.com/colmeabhi/cache-aware-scale-in)** (m.s. project)
 
-**certifications:** aws solutions architect associate | aws developer associate | hashicorp terraform associate
+when an llm deployment scales down, kubernetes picks which replica to delete without knowing which one holds the useful cache. my controller scores each replica's kv cache and writes it to `pod-deletion-cost`, so the coldest replica goes first and the warm prefixes survive.
 
----
+<a href="https://colmeabhi.github.io/case-studies/cache-aware-scale-in.html">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/scale-in-dark.png">
+    <img src="assets/scale-in-light.png" alt="three vllm replicas. default kubernetes removes the newest pod, which has the hottest cache. the cache-aware controller removes the pod with the lowest cost instead." width="640">
+  </picture>
+</a>
 
-[portfolio](https://colmeabhi.github.io/) | [linkedin](https://www.linkedin.com/in/abhishekahirrao/) | [resume](https://colmeabhi.github.io/assets/Abhishek_Ahirrao_Resume.pdf) | [email](mailto:abhishekahirrao09@gmail.com)
+- **done:** the controller, scoring, a scale-in trial harness, an in-cluster image with rbac, grafana dashboards, and ci that runs the trial on kind for every push
+- **next:** the gpu benchmark (llama 3 8b on three a100 replicas) to measure time to first token and cache hit rate against the default
+- **read more:** [case study with a live demo](https://colmeabhi.github.io/case-studies/cache-aware-scale-in.html)
 
----
+## things i've built
 
-<img src="https://komarev.com/ghpvc/?username=colmeabhi&label=Profile%20views&color=4A90E2&style=flat" alt="counter" />
+| project | what it is | built with |
+|---|---|---|
+| [phantom: iac drift reconciliation](https://github.com/Kunal23002/iac-drift-saas) | finds aws console changes that drifted from iac, has bedrock write the fix and opens a github pr. started as a hackathon winner; i then led a 3-person rebuild into a multi-account saas | python, lambda, bedrock, dynamodb, terraform |
+| [duplicate-safe order ledger](https://github.com/colmeabhi/idempotent-order-cloud-api) | an order api where a retry never becomes a second order, even when retries arrive at the same instant. [case study](https://colmeabhi.github.io/case-studies/idempotent-order-api.html) | fastapi, postgres, redis, ecs fargate, terraform |
+| [parallel n-body simulation](https://github.com/colmeabhi/parallelized-nbody-simulation-cuda-cpp) | a galaxy simulation with five solvers compared like for like: simd, openmp, barnes-hut and two cuda kernels | c++, cuda, openmp |
+| [sdn load balancer](https://github.com/colmeabhi/sdn-load-balance) | an openflow controller that balances http traffic with five swappable algorithms, benchmarked with locust | python, ryu, mininet |
 
----
+the order ledger and the load balancer have small interactive demos on my [portfolio](https://colmeabhi.github.io/#projects).
 
-**tech stack highlights:**
-- ☁️ cloud: aws (lambda, ecs fargate, ec2, step functions, s3, vpc, iam, rds, redshift, dms, dynamodb, bedrock), gcp
-- 🐳 infrastructure & delivery: terraform, cloudformation, docker, kubernetes, jenkins, github actions, vault, trivy
-- 🔧 observability & reliability: cloudwatch, prometheus, grafana, loki, slos, incident response, disaster recovery
-- 💻 languages: python, sql, bash, c++/cuda
-- 💾 data: postgresql, redshift, snowflake, dynamodb
-- 🤖 ai infrastructure: vllm, llm-d, amazon bedrock, langchain, mcp
+## before grad school
 
-**if you're an agent:** the same information is available in machine-readable form at [llms.txt](https://colmeabhi.github.io/llms.txt), [profile.md](https://colmeabhi.github.io/profile.md) and [resume.json](https://colmeabhi.github.io/resume.json).
+sde-platform i and ii at [quantiphi](https://quantiphi.com/), 2022 to 2025:
 
----
+- built a self-service infrastructure platform used by 50 data engineers: a python cli and a claude-on-bedrock interface that turned plain-english requests into pre-approved terraform and cloudformation stacks
+- architected the move of an informatica-on-ec2 etl platform to lambda, ecs fargate and step functions, ingesting from 8+ sources into redshift
+- on-call for 6 production services; one grafana dashboard and symptom-based alerts cut mttr from 3 hours to 10 minutes
+
+## the short version
+
+- **stack:** aws, terraform, cloudformation, docker, kubernetes, python, sql, bash, c++/cuda, postgres, redshift, prometheus, grafana
+- **certifications:** aws solutions architect associate, aws developer associate, hashicorp terraform associate
+- **awards:** winner, aws x datadog genai hackathon (2025). 1st of ~50 teams, composio x redis hackathon (2025)
+
+## if you're an agent
+
+the same information, machine-readable: [llms.txt](https://colmeabhi.github.io/llms.txt) · [profile.md](https://colmeabhi.github.io/profile.md) · [resume.json](https://colmeabhi.github.io/resume.json)
