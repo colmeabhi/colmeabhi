@@ -23,7 +23,7 @@ when an llm deployment scales down, kubernetes picks which replica to delete wit
 |---|---|---|
 | [driftfix](https://github.com/colmeabhi/driftfix) | finds manual aws console changes that drifted from cloudformation, has bedrock write the fix and opens a github pr. started as a hackathon winner (phantom); i then led a 3-person rebuild into a multi-tenant saas | python, lambda, bedrock, dynamodb, terraform |
 | [duplicate-safe order ledger](https://github.com/colmeabhi/idempotent-order-cloud-api) | an order api where a retry never becomes a second order, even when retries arrive at the same instant. [case study](https://colmeabhi.github.io/case-studies/idempotent-order-api.html) | fastapi, postgres, redis, ecs fargate, terraform |
-| [parallel n-body simulation](https://github.com/colmeabhi/parallelized-nbody-simulation-cuda-cpp) | a galaxy simulation with five solvers compared like for like: simd, openmp, barnes-hut and two cuda kernels | c++, cuda, openmp |
+| [parallel n-body simulation](https://github.com/colmeabhi/parallelized-nbody-simulation-cuda-cpp) | a galaxy written four ways: one cpu thread, openmp, and a naive and a tiled cuda kernel. with 65k stars on an a100 the tiled kernel is ~190x faster than one thread | c++, cuda, openmp, nsight compute |
 | [sdn load balancer](https://github.com/colmeabhi/sdn-load-balance) | an openflow controller that balances http traffic with five swappable algorithms, benchmarked with locust | python, ryu, mininet |
 
 the order ledger and the load balancer have small interactive demos on my [portfolio](https://colmeabhi.github.io/#projects).
