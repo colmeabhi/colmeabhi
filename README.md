@@ -12,13 +12,6 @@ i'm a platform engineer. i build the infrastructure that sits under data and ai 
 
 when an llm deployment scales down, kubernetes picks which replica to delete without knowing which one holds the useful cache. my controller scores each replica's kv cache and writes it to `pod-deletion-cost`, so the coldest replica goes first and the warm prefixes survive.
 
-<a href="https://colmeabhi.github.io/case-studies/cache-aware-scale-in.html">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/scale-in-dark.png">
-    <img src="assets/scale-in-light.png" alt="three vllm replicas. default kubernetes removes the newest pod, which has the hottest cache. the cache-aware controller removes the pod with the lowest cost instead." width="640">
-  </picture>
-</a>
-
 - **done:** the controller, scoring, a scale-in trial harness, an in-cluster image with rbac, grafana dashboards, and ci that runs the trial on kind for every push
 - **next:** the gpu benchmark (llama 3 8b on three a100 replicas) to measure time to first token and cache hit rate against the default
 - **read more:** [case study with a live demo](https://colmeabhi.github.io/case-studies/cache-aware-scale-in.html)
