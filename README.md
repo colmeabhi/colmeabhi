@@ -4,7 +4,7 @@ i'm a platform engineer. i build the infrastructure that sits under data and ai 
 
 **open to full-time platform, infrastructure and backend roles.**
 
-[portfolio](https://colmeabhi.github.io/) · [resume](https://colmeabhi.github.io/assets/Abhishek_Ahirrao_Resume.pdf) · [linkedin](https://www.linkedin.com/in/abhishekahirrao/) · [email](mailto:abhishekahirrao09@gmail.com)
+[portfolio](https://colmeabhi.github.io/) · [resume](https://colmeabhi.github.io/assets/Abhishek_Ahirrao_Resume.pdf) · [linkedin](https://www.linkedin.com/in/abhishekahirrao/) · [email](mailto:ahirraoabhishek007@gmail.com)
 
 ## what i'm working on now
 
