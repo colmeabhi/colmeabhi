@@ -13,7 +13,8 @@ i'm a platform engineer. i build the infrastructure that sits under data and ai 
 when an llm deployment scales down, kubernetes picks which replica to delete without knowing which one holds the useful cache. my controller scores each replica's kv cache and writes it to `pod-deletion-cost`, so the coldest replica goes first and the warm prefixes survive.
 
 - **done:** the controller, scoring, a scale-in trial harness, an in-cluster image with rbac, grafana dashboards, and ci that runs the trial on kind for every push
-- **next:** the gpu benchmark (llama 3 8b on three a100 replicas) to measure time to first token and cache hit rate against the default
+- **first gpu run:** qwen2.5-7b on three a100s. the controller removed the right replica and it made no difference, because my test traffic warmed every cache to ~95%. the case study explains why
+- **next:** a harsher workload with a truly cold replica, and scoring cached tokens per second instead of hit rate
 - **read more:** [case study with a live demo](https://colmeabhi.github.io/case-studies/cache-aware-scale-in.html)
 
 ## things i've built
