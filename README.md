@@ -40,7 +40,7 @@ sde-platform i and ii at [quantiphi](https://quantiphi.com/), 2022 to 2025:
 
 - **stack:** aws, terraform, cloudformation, docker, kubernetes, python, sql, bash, c++/cuda, postgres, redshift, prometheus, grafana
 - **certifications:** aws solutions architect associate, aws developer associate, hashicorp terraform associate
-- **awards:** winner, aws x datadog genai hackathon (2025). 1st of ~50 teams, composio x redis hackathon (2025)
+- **awards:** winner, aws x datadog genai hackathon (san francisco, 2025). 1st of ~50 teams, composio x redis hackathon (san francisco, 2025)
 
 ## if you're an agent
 
